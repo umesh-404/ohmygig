@@ -592,5 +592,23 @@ if count_claims(zone_id, window_minutes=15) > CLUSTER_THRESHOLD:
 
 ---
 
-- 2-minute video — `[YouTube link here]`
+## 17. Local Setup (Prototype Evaluation)
 
+To run the mock AI backend pipeline locally for evaluation:
+
+1. Clone the repository dynamically (ensure you have Python 3.9+).
+2. Install the backend dependencies:
+   ```bash
+   cd src
+   pip install -r ../requirements.txt
+   ```
+3. Run the API Gateway cluster locally:
+   ```bash
+   python api_gateway/main.py
+   ```
+   *The mock gateway will boot on `localhost:8000`. You can POST JSON mock telemetry to `/claim/evaluate` to witness the Fraud Engine score live.*
+
+---
+
+## 📽️ DEVTrails Pitch & Demo Video
+[👉 CLICK HERE TO WATCH OUR 2-MINUTE PROJECT DEMO]( REPLACE_WITH_YOUTUBE_OR_VIMEO_LINK )
