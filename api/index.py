@@ -38,7 +38,7 @@ def evaluate_payout_claim(payload: TelemetryPayload, authorization: str = Header
         
     try:
         # Pass telemetry dictionary derived from Pydantic model into engine
-        assessment = cvs_engine.evaluate_claim(payload.dict())
+        assessment = cvs_engine.evaluate_claim(payload.model_dump())
         return {
             "worker_id": payload.worker_id,
             "status": "PROCESSED",
