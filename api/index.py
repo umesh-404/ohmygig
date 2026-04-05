@@ -4,7 +4,7 @@ import sys
 import os
 
 # Adjust path strictly for mock demonstration purposes
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
 from ml_engine.fraud_detection import ClaimValidityEngine
 
 app = FastAPI(
@@ -24,11 +24,11 @@ class TelemetryPayload(BaseModel):
     aggregator_app_inactive_hours: float
     syndicate_cluster_density: int
 
-@app.get("/")
+@app.get("/api")
 def health_check():
-    return {"status": "operational", "system": "OhMyGig Pipeline Active"}
+    return {"status": "operational", "system": "OhMyGig PIPELINE Active"}
 
-@app.post("/claim/evaluate")
+@app.post("/api/evaluate")
 def evaluate_payout_claim(payload: TelemetryPayload, authorization: str = Header(None)):
     """
     Receives raw sensor/app telemetry from Flutter client, runs CVS verification.
